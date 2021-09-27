@@ -27,6 +27,6 @@ def start():
 
     return str(result) #calc_date(start_date)
 
-app.run()
+# app.run()
 
 #test
