@@ -7,11 +7,14 @@ def calc_date(start):
     while today_date > start:
         start = start + four_weeks
     if today_date < start:
-        start = start - datetime.timedelta(days = 1)    
-    return start 
+        start = start - datetime.timedelta(days = 1)
+    last_day = f"{start.day}-{start.month}-{start.year}"
+    return last_day 
 
 
-d1, m1, y1 = [int(x) for x in input("What is the start date of the contract? (DD-MM-YYYY please): ").split('-')]
+d1, m1, y1 = [int(x) for x in input("Wat is de startdatum van het contract? (DD-MM-YYYY please): ").split('-')]
 start_date = date(y1, m1, d1)
 
 print(calc_date(start_date))
+
+input("Druk op <Enter> om af te sluiten.") 
