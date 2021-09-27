@@ -16,7 +16,6 @@ def calc_date(start):
 
 @app.route('/', methods=["GET"])
 def start():
-    <h1>Test</h1>
     start = request.args['date']
     # d1, m1, y1 = [int(x) for x in start("Wat is de startdatum van het contract? (DD-MM-YYYY please): ").split('-')]
     d1 = int(f"{start[0]}{start[1]}")
