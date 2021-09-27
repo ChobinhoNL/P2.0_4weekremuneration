@@ -6,9 +6,10 @@ def calc_date(start):
     four_weeks = datetime.timedelta(weeks = 4)
     while today_date > start:
         start = start + four_weeks
-    if today_date < start:
+
+    if today_date <= start:
         start = start - datetime.timedelta(days = 1)
-    last_day = f"{start.day}-{start.month}-{start.year}""
+    last_day = f"{start.day}-{start.month}-{start.year}"
     return last_day 
 
 
