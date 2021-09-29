@@ -32,11 +32,20 @@ def start():
     # d1, m1, y1 = [int(x) for x in start("Wat is de startdatum van het contract? (DD-MM-YYYY please): ").split('-')]
     if request.method == "POST":
         start = request.form.get("startdate")
-        d1 = int(f"{start[0]}{start[1]}")
-        m1 = int(f"{start[3]}{start[4]}")
-        y1 = int(f"{start[6:]}")
-        start_date = date(y1, m1, d1)
-        result = str(calc_date(start_date))
+        if "-" in start:
+            d1 = int(f"{start[0]}{start[1]}")
+            m1 = int(f"{start[3]}{start[4]}")
+            y1 = int(f"{start[6:]}")
+            start_date = date(y1, m1, d1)
+            result = str(calc_date(start_date))
+            print(start_date)
+        else:
+            d1 = int(f"{start[0]}{start[1]}")
+            m1 = int(f"{start[2]}{start[3]}")
+            y1 = int(f"{start[4:]}")
+            start_date = date(y1, m1, d1)
+            result = str(calc_date(start_date))
+            print(start_date)
         return render_template("response.html", value=result) 
 
     return render_template("form.html")
